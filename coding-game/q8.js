@@ -5,7 +5,7 @@ const sumSquares = (array) => {
       n = n + (array[value] * array[value]);
     }
     if (typeof array[value] === 'object') {
-      return n + sumSquares(array[value]);
+      n = n + sumSquares(array[value]);
     }
   }
   n
@@ -16,7 +16,7 @@ const simpleArray = [1, 2, [3], 4]
 
 console.log(sumSquares(simpleArray));
 
-const tensArray = [10, 10, [10, 10]]
+const tensArray = [10, 10, [10, 10], 10]
 
 console.log(sumSquares(tensArray));
 
