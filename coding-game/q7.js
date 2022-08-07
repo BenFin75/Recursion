@@ -5,7 +5,7 @@ const totalIntegers = (array) => {
       ++n;
     }
     if (typeof array[value] === 'object') {
-      return n + totalIntegers(array[value]);
+      n = n + totalIntegers(array[value]);
     }
   }
   n
@@ -27,11 +27,12 @@ const testArray =
           4,
           5
         ],
-        3
+        3,
+        6
       ]
     ]
   ]
 ];
 
 
-// console.log(totalIntegers(testArray));
+console.log(totalIntegers(testArray));
