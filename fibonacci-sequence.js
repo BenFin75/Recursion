@@ -1,14 +1,14 @@
 const fibonacci = (n) => {
   const array = []
-  for (let i = 1; i <= n; i++) {
-    if (i === 1) {
+  for (let i = 0; i <= n; i++) {
+    if (i === 0) {
       array.push(0);
     }
-    if (i === 2) {
+    if (i === 1) {
       array.push(1);
     }
-    if (i > 2) {
-      array.push((array[i-3] + array[i-2]));
+    if (i >= 2) {
+      array.push((array[i-1] + array[i-2]));
     }
   }
   return array;
@@ -17,19 +17,14 @@ const fibonacci = (n) => {
 console.log(fibonacci(8));
 
 const fibonacciRecursively = (n) => {
-  const array = []
-  for (let i = 1; i <= n; i++) {
-    if (i === 1) {
-      array.push(0);
-    }
-    if (i === 2) {
-      array.push(1);
-    }
-    if (i > 2) {
-      
-    }
+  if (n === 0) {
+    return [0];
   }
-  return array;
+  if (n === 1) {
+    return [0, 1];
+  }
+  const arr = fibonacciRecursively(n - 1);
+  return [...arr, arr[n-1] + arr[n - 2]];
 }
 
-// console.log(fibonacci(8));
+console.log(fibonacciRecursively(3));
