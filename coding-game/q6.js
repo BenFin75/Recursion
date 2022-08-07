@@ -1,13 +1,14 @@
 const contains = (obj, term) => {
+  let result = false;
   for (const key in obj) {
     if (obj[key] === term) {
-      return true;
+      result = true;
     }
     if (typeof obj[key] === 'object') {
-      return contains(obj[key], term);
+      result = contains(obj[key], term);
     }
   }
-  return false;
+  return result;
 }
 
 const testObject = {
